@@ -4,7 +4,7 @@ import (
 	"context"
 
 	_ "github.com/denisenkom/go-mssqldb"
-	"github.com/go-rel/mssql"
+	"github.com/DvdSpijker/mssql"
 	"github.com/go-rel/rel"
 )
 

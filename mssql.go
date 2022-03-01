@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	mssqlbuilder "github.com/go-rel/mssql/builder"
+	mssqlbuilder "github.com/DvdSpijker/mssql/builder"
 	"github.com/go-rel/rel"
 	"github.com/go-rel/sql"
 	"github.com/go-rel/sql/builder"
