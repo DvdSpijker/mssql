@@ -1,4 +1,4 @@
-module github.com/go-rel/mssql
+module github.com/DvdSpijker/mssql
 
 go 1.16
 
