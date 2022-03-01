@@ -19,9 +19,9 @@ func (i Insert) Build(table string, primaryField string, mutates map[string]rel.
 	)
 
 	if identityInsert {
-		buffer.WriteString("IF OBJECTPROPERTY(OBJECTID('")
+		buffer.WriteString("IF OBJECTPROPERTY(OBJECT_ID('")
 		buffer.WriteEscape(table)
-		buffer.WriteString("'), 'TableHasIdentity') = 1")
+		buffer.WriteString("'), 'TableHasIdentity') = 1 ")
 		buffer.WriteString("SET IDENTITY_INSERT ")
 		buffer.WriteEscape(table)
 		buffer.WriteString(" ON; ")
@@ -64,9 +64,9 @@ func (i Insert) Build(table string, primaryField string, mutates map[string]rel.
 	buffer.WriteString(");")
 
 	if identityInsert {
-		buffer.WriteString("IF OBJECTPROPERTY(OBJECTID('")
+		buffer.WriteString("IF OBJECTPROPERTY(OBJECT_ID('")
 		buffer.WriteEscape(table)
-		buffer.WriteString("'), 'TableHasIdentity') = 1")
+		buffer.WriteString("'), 'TableHasIdentity') = 1 ")
 		buffer.WriteString(" SET IDENTITY_INSERT ")
 		buffer.WriteEscape(table)
 		buffer.WriteString(" OFF; ")
