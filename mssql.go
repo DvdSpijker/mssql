@@ -39,7 +39,12 @@ func (m MSSQL) Insert(ctx context.Context, query rel.Query, primaryField string,
 		rows, err       = m.DoQuery(ctx, statement, args)
 	)
 
-	defer rows.Close()
+	defer func() {
+		if rows != nil {
+			rows.Close()
+		}
+	}()
+
 	if err == nil && rows.Next() {
 		rows.Scan(&id)
 	}
@@ -62,7 +67,12 @@ func (m MSSQL) InsertAll(ctx context.Context, query rel.Query, primaryField stri
 		rows, err       = m.DoQuery(ctx, statement, args)
 	)
 
-	defer rows.Close()
+	defer func() {
+		if rows != nil {
+			rows.Close()
+		}
+	}()
+	
 	if err == nil {
 		for rows.Next() {
 			var id int64
